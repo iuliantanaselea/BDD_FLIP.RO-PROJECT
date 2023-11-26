@@ -1,9 +1,9 @@
 from behave import *
 
 
-@given('I am on the https://flip.ro/ page')
-def step_impl(context):
-    context.base_page.go_to_main_page()
+@given('I am on the "{url}" page')
+def step_impl(context,url):
+    context.base_page.go_to_main_page(url)
 
 
 @when('I enter "{brand}" on the search bar')

@@ -10,8 +10,8 @@ class BasePage(Browser):
     SEARCH_BUTTON = (By.XPATH, '//section[@id=\"searchBar\"]//legend')
     COOKIE_BUTTON =(By.CSS_SELECTOR,'.cookie-text button.primary')
     GO_TO_MAINPAGE_BUTTON = (By.XPATH,'//button//div[contains(text(),\"Mergi la flip.ro\")]/ancestor::button')
-    def go_to_main_page(self):
-        self.driver.get("https://flip.ro/magazin/")
+    def go_to_main_page(self,url):
+        self.driver.get(url)
         try:
             self.driver.find_element(*self.COOKIE_BUTTON).click()
         except NoSuchElementException:
@@ -47,3 +47,7 @@ class BasePage(Browser):
 
     def get_filter_radio_button(self,filter):
         return self.driver.find_element(By.XPATH,f'//label[contains(text(),"{filter}")]/ancestor::div[@class="d-block pt-3 secondary custom-control custom-control-inline custom-radio"]')
+
+    def get_condition_filter_checkbox(self, filter):
+        return self.driver.find_element(By.XPATH, f'//div/label[contains(text(),"{filter}")]')
+

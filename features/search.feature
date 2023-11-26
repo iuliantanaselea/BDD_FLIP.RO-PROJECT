@@ -1,7 +1,7 @@
 Feature: search feature
 
   Background:
-    Given I am on the https://flip.ro/ page
+    Given I am on the "https://flip.ro/" page
 
   @search
   Scenario: Search Samsung products
